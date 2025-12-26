@@ -6,3 +6,25 @@ html, body, #root {
   overflow-x: hidden;
   font-family: Inter, sans-serif;
 }
+
+.font-jersey-25 {
+  font-family: "Jersey 25", sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.font-jersey-10 {
+  font-family: "Jersey 10", sans-serif;
+  letter-spacing: 0.06em;
+}
+
+.font-argent-italic {
+  font-family: "argent-pixel-cf", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.font-argent-normal {
+  font-family: "argent-pixel-cf", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}

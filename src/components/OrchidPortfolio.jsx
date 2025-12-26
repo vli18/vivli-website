@@ -24,9 +24,10 @@ export default function OrchidPortfolio() {
       thumbnail: getImg("/src/portfolio-images/aerial-reverie/thumbnail.jpg"),
       description: "An immersive VR storyworld illuminated by coordinated Crazyflie drone flight paths",
       fullDescription:
-        "Aerial Reverie is an immersive VR storyworld illuminated by the motion of Crazyflie drones, their coordinated flight paths controlled via Python and ROS. Their choreographed motion creates emergent visuals in VR.",
+      "Aerial Reverie is an immersive VR storyworld illuminated by the motion of Crazyflie drones, their coordinated flight paths controlled via Python and ROS. The choreographed trajectories assemble a dynamic cityscape that becomes both simulation and narrative device, examining collective intelligence, industrial expansion, and the tension between nature, home, and rapidly evolving built environments.",
       details: {
         year: "2024",
+        role: "",
         mediums: "Python, ROS, VR, Crazyflie Drones",
       },
       images: [
@@ -45,15 +46,14 @@ export default function OrchidPortfolio() {
       thumbnail: getImg("/src/portfolio-images/pawlink/thumbnail.png"),
       description: "Smart-fabric collar with embedded sensors for continuous animal health monitoring",
       fullDescription:
-        "PawLink is an integrated smart-fabric collar that leverages thermally drawn fiber technology with embedded capacitive and thermistor sensors to enable continuous, fabric-level inference.",
+      "PawLink is an integrated smart-fabric collar that leverages thermally drawn fiber technology with embedded capacitive and thermistor sensors to enable continuous, fabric-level inference.\n\nA compact ML classifier runs on collar-side data to detect behavioral patterns such as excessive scratching (linked to allergies, infections, or skin irritation), track temperature changes and activity levels for health and exercise monitoring, and activate a safety protocol: a “Lost Mode” that detects nearby humans to broadcast signals.\n\nPawLink demonstrates how computational textiles can function as compassionate, adaptive interfaces for animal wellbeing.",
       details: {
         year: "2024",
+        role: "Software & Hardware Integration, Product Design",
         mediums: "Thermally Drawn Fibers, ML, Embedded Sensors",
       },
       images: [
-        { placeholder: "Main Image", layout: "two-thirds" },
-        { placeholder: "Side Detail", layout: "third" },
-        { placeholder: "Process Shot", layout: "full" },
+        { src: getImg("/src/portfolio-images/pawlink/pawlink.png"), layout: "full" },
       ],
     },
     {
@@ -63,9 +63,10 @@ export default function OrchidPortfolio() {
       thumbnail: getImg("/src/portfolio-images/aligned/thumbnail.jpg"),
       description: "Smart-fabric posture-sensing system with real-time ML-based detection and haptic feedback",
       fullDescription:
-        "Aligned is a smart-fabric posture-sensing system integrating a custom PCB with four I²C-networked accelerometers and a vibration motor for haptic feedback.",
+      "Aligned is a smart-fabric posture-sensing system integrating a custom PCB with four I²C-networked accelerometers and a vibration motor for haptic feedback.\n\nA lightweight machine-learning model distinguishes upright vs. slouched posture in real time, forming the foundation for a textile-embedded interface that supports healthier body awareness.\n\nThe system includes both a fully functioning prototype demonstrating real-time posture detection and a complete hardware pipeline, from circuit schematic to manufactured PCB, ready for textile integration in future iterations.",
       details: {
         year: "2024",
+        role: "",
         mediums: "Custom PCB, I²C, ML, Haptic Feedback",
       },
       images: [
@@ -76,31 +77,57 @@ export default function OrchidPortfolio() {
     },
     {
       id: 4,
+      title: "Kinetic Pixels",
+      category: "Tech",
+      thumbnail: getImg(""),
+      description: "A reimagined 3D scene from Avatar: The Last Airbender coded in Three.js",
+      fullDescription:
+      "A reimagination of a scene in the episode 'The Siege of the North' from Avatar: the Last Airbender.\n\nIn the Spirit Oasis, two koi fish — Tui and La — maintain the balance between the Earth and the Moon. When the fish are disturbed, chaos ensues.\n\nUsing ThreeJS and Blender, we modeled this scene with realistic water effects, dynamic lighting, and interacting koi fish simulations.",
+      details: {
+        year: "2025",
+        role: "",
+        mediums: "Three.js, Blender, GLSL",
+      },
+      images: [
+        {
+          type: "iframe",
+          src: "https://spirit-oasis.vercel.app/",
+          layout: "full"
+        }
+      ],
+    },
+    {
+      id: 5,
       title: "Spirit Oasis",
       category: "Tech",
       thumbnail: getImg("/src/portfolio-images/spirit-oasis/thumbnail.png"),
       description: "A reimagined 3D scene from Avatar: The Last Airbender with realistic water and lighting",
       fullDescription:
-        "A reimagination of a scene in the episode 'The Siege of the North' from Avatar: the Last Airbender. In the Spirit Oasis, two koi fish maintain balance between elements.",
+      "This project is a reimagination of a scene in the episode 'The Siege of the North' from Avatar: the Last Airbender. In the Spirit Oasis, two koi fish Tui and La maintain the balance between the Earth and the Moon. When the fish are disturbed, chaos ensues. \n\n Using ThreeJS and Blender, we modeled this scene using realistic water effects, lighting changes, and koi fish interaction.",
       details: {
         year: "2023",
+        role: "",
         mediums: "Three.js, Blender, GLSL",
       },
       images: [
-        { placeholder: "Scene 1", layout: "half" },
-        { placeholder: "Scene 2", layout: "half" },
-        { placeholder: "Detail", layout: "full" },
+        {
+          type: "iframe",
+          src: "https://spirit-oasis.vercel.app/",
+          layout: "full"
+        },
       ],
     },
     {
-      id: 5,
+      id: 6,
       title: "NÜWA",
       category: "Fashion",
       thumbnail: getImg("/src/portfolio-images/nuwa/thumbnail.png"),
       description: "Modernized hanfu and qipao challenging techno-Orientalist narratives through textile craft",
-      fullDescription: "Showcased at Fashion@Brown Runway Show 2024 & Rhode Island Fashion Week 2024.",
+      fullDescription:
+      "Showcased at Fashion@Brown Runway Show 2024 & Rhode Island Fashion Week 2024.\n\nAncient deity, new cyborg. One with earth, integrated in cyberspace.\n\nIn techno-Orientalism, the West views the Chinese body in contradicting space-times: a relic of the past and a future both feared and desired. It seeks to collect a drop of what the Chinese body can provide — culture, technology, sex — and in turn, create a perverse reality with its voyeuristic eyes.\n\nHow can women of the Chinese diaspora reject and subsequently remake this techno-orientalist framework?\n\nEmbody the paradox of temporalities and collapse contrasting timescales into the present moment. Primordial, earth-forming goddess and futuristic robot condensed into one in the Now: the modern woman. Fetishization, subjugation by the malicious eye — we repair the wounds of our broken heavens with our molded clay bodies and the garments that adorn them.\n\nBy crafting modernized hanfu and qipao dresses, interweaving the histories of silk and brocade with technology, the Chinese body is situated in all timeframes, toppling the binarist narrative generated by the West. Placed before the public eye, Nüwa asks the audience to confront the simultaneous pleasure and discomfort of the techno-Orientalist paradigm.",
       details: {
         year: "2024",
+        role: "",
         mediums: "Textile Design, Fashion, Cultural Commentary",
       },
       images: [
@@ -114,7 +141,7 @@ export default function OrchidPortfolio() {
     },
   ];
 
-  const filters = ["All", "Fashion", "Tech"];
+  const filters = ["All", "Tech", "Fashion"];
 
   const filteredItems =
     activeFilter === "All" ? portfolioItems : portfolioItems.filter((item) => item.category === activeFilter);
@@ -439,14 +466,14 @@ export default function OrchidPortfolio() {
               style={{
                 maxWidth: "1200px",
                 margin: "0 auto",
-                padding: "4rem 2rem",
+                padding: "3rem 2rem",
               }}
             >
               {/* Project Header */}
-              <div style={{ marginBottom: "3rem" }}>
+              <div style={{ marginBottom: "1rem" }}>
                 <span
                   style={{
-                    fontSize: "0.9rem",
+                    fontSize: "1.0rem",
                     color: "rgba(255, 255, 255, 0.5)",
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
@@ -455,8 +482,9 @@ export default function OrchidPortfolio() {
                   {selectedProject.category}
                 </span>
                 <h1
+                  className="font-argent-normal"
                   style={{
-                    fontSize: "3rem",
+                    fontSize: "2.3rem",
                     fontWeight: "300",
                     margin: "1rem 0",
                     textShadow: "0 0 20px rgba(0,0,0,0.8)",
@@ -465,40 +493,47 @@ export default function OrchidPortfolio() {
                   {selectedProject.title}
                 </h1>
 
-                {/* Project Details Grid - Moved here */}
+                {/* Project Details Grid */}
                 <div
                   style={{
                     display: "grid",
                     gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
                     gap: "1.5rem",
-                    marginBottom: "1.5rem",
+                    marginBottom: "1rem",
                     background: "rgba(0, 0, 0, 0.4)",
                     backdropFilter: "blur(10px)",
                     border: "1px solid rgba(255, 255, 255, 0.1)",
                     borderRadius: "8px",
-                    padding: "1.25rem",
+                    padding: "1rem",
                   }}
                 >
                   <div>
                     <div style={{ fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.5)", marginBottom: "0.4rem" }}>
                       Year
                     </div>
-                    <div style={{ fontSize: "1rem", fontWeight: "400" }}>{selectedProject.details.year}</div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: "400" }}>{selectedProject.details.year}</div>
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.5)", marginBottom: "0.4rem" }}>
+                      Role
+                    </div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: "400" }}>{selectedProject.details.role}</div>
                   </div>
                   <div>
                     <div style={{ fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.5)", marginBottom: "0.4rem" }}>
                       Mediums
                     </div>
-                    <div style={{ fontSize: "1rem", fontWeight: "400" }}>{selectedProject.details.mediums}</div>
+                    <div style={{ fontSize: "0.9rem", fontWeight: "400" }}>{selectedProject.details.mediums}</div>
                   </div>
                 </div>
 
                 <p
                   style={{
-                    fontSize: "1.2rem",
+                    fontSize: "1rem",
+                    fontWeight: 300,
                     color: "rgba(255, 255, 255, 0.7)",
                     maxWidth: "100%",
-                    lineHeight: "1.6",
+                    lineHeight: "1.5",
                     whiteSpace: "pre-line",
                   }}
                 >
@@ -533,8 +568,8 @@ export default function OrchidPortfolio() {
                         minHeight: "300px",
                         background: "rgba(255, 255, 255, 0.05)",
                         backdropFilter: "blur(10px)",
-                        border: "1px solid rgba(255, 255, 255, 0.1)",
-                        borderRadius: "8px",
+                        // border: "1px solid rgba(255, 255, 255, 0.1)",
+                        // borderRadius: "8px",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -543,10 +578,41 @@ export default function OrchidPortfolio() {
                         overflow: "hidden",
                       }}
                     >
-                      {image.src ? (
-                        <img src={image.src} alt={image.placeholder} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                      {image.type === "iframe" ? (
+                        <div
+                        style={{
+                          position: "relative",
+                          width: "100%",
+                          paddingBottom: "56.25%", // 16:9 aspect ratio
+                          height: 0,
+                          borderRadius: "8px",
+                          overflow: "hidden",
+                          // border: "1px solid rgba(255, 255, 255, 0.1)",
+                          background: "rgba(255, 255, 255, 0.05)",
+                        }}
+                        >
+                          <iframe
+                            src={image.src}
+                            style={{
+                              position: "absolute",
+                              top: 0,
+                              left: 0,
+                              width: "100%",
+                              height: "100%",
+                              border: "none",
+                            }}
+                            loading="lazy"
+                            allow="fullscreen"
+                          />
+                        </div>
+                      ) : image.src ? (
+                        <img
+                          src={image.src}
+                          alt={image.placeholder}
+                          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                        />
                       ) : (
-                        image.placeholder
+                        image.src
                       )}
                     </div>
                   );
@@ -573,7 +639,7 @@ export default function OrchidPortfolio() {
             alignItems: "center",
           }}
         >
-          <div style={{ fontSize: "1.2rem", fontWeight: "400" }}>VIVIAN LI</div>
+          <div className="font-argent-italic" style={{ fontSize: "1.3rem", fontWeight: "400" }}>vivian li</div>
           <div style={{ display: "flex", gap: "2rem" }}>
             <button
               onClick={() => scrollToSection("publications")}
@@ -640,15 +706,16 @@ export default function OrchidPortfolio() {
           }}
         >
           <h1
+            className="font-argent-italic"
             style={{
-              fontSize: "3rem",
-              fontWeight: "300",
+              fontSize: "4.5rem",
+              fontWeight: "100",
               marginBottom: "0.5rem",
               textShadow:
                 "0 0 40px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 2px 2px 8px rgba(0,0,0,1)",
             }}
           >
-            VIVIAN LI
+            vivian li
           </h1>
           <p
             style={{
@@ -656,12 +723,11 @@ export default function OrchidPortfolio() {
               maxWidth: "900px",
               fontWeight: "300",
               textShadow:
-                "0 0 40px rgba(0,0,0,1), 0 0 30px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,1), 0 0 10px rgba(0,0,0,1), 2px 2px 8px rgba(0,0,0,1)",
+                "0 0 3px rgba(0,0,0,1)",
               lineHeight: "1.7",
             }}
           >
-            Working across computational design, digital fabrication, graphics, and HCI, I explore how materials behave, adapt, and transform. I build computational and fabrication systems that experiment with materials and software.
-            <br />
+            I explore how computation can emerge from material behavior. Working across computational design, digital fabrication, computer graphics, and HCI, I develop reconfigurable textile and soft-material systems where sensing, logic, and actuation are encoded into geometry and structure.            <br />
             <br />
             I am currently a researcher in the Computational Design Group @ Brown Visual Computing Lab. I received my Sc.B. in Computer Science from Brown University.
           </p>
@@ -670,15 +736,16 @@ export default function OrchidPortfolio() {
         {/* Publications Section */}
         <div id="publications" style={{ padding: "0.5rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
           <h2
+            className = "font-argent-normal"
             style={{
-              fontSize: "1.8rem",
+              fontSize: "2rem",
               fontWeight: "300",
               marginBottom: "1rem",
               textAlign: "center",
               textShadow: "0 0 20px rgba(0,0,0,0.8)",
             }}
           >
-            Publications
+            publications
           </h2>
 
           <div
@@ -706,7 +773,7 @@ export default function OrchidPortfolio() {
           >
             {/* Thumbnail */}
             <img
-              src={getImg("/src/portfolio-images/single-fibre/figure-1.png")}
+              src={getImg("/src/portfolio-images/single-fibre/dither_it_figure-1.png")}
               alt="Single-fibre computing publication"
               style={{
                 width: "180px",
@@ -733,6 +800,7 @@ export default function OrchidPortfolio() {
         {/* Portfolio Section */}
         <div id="portfolio" style={{ padding: "0.5rem 2rem 2.5rem 2rem", maxWidth: "1200px", margin: "0 auto" }}>
           <h2
+            className = "font-argent-normal"
             style={{
               fontSize: "1.8rem",
               fontWeight: "300",
@@ -741,7 +809,7 @@ export default function OrchidPortfolio() {
               textShadow: "0 0 20px rgba(0,0,0,0.8)",
             }}
           >
-            Portfolio
+            portfolio
           </h2>
 
           {/* Filter Buttons */}
@@ -816,7 +884,7 @@ export default function OrchidPortfolio() {
                   }}
                 >
                   {item.thumbnail ? (
-                    <img src={item.thumbnail} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.7 }} />
+                    <img src={item.thumbnail} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 1.0 }} />
                   ) : (
                     <span style={{ fontSize: "0.8rem", color: "rgba(255, 255, 255, 0.3)" }}>Project Image</span>
                   )}
@@ -836,7 +904,7 @@ export default function OrchidPortfolio() {
                       {item.category}
                     </span>
                   </div>
-                  <p style={{ fontSize: "0.9rem", color: "rgba(255, 255, 255, 0.7)", margin: 0 }}>{item.description}</p>
+                  <p style={{ fontSize: "0.8rem", fontWeight: 300, color: "rgba(255, 255, 255, 0.7)", margin: 0 }}>{item.description}</p>
                 </div>
               </div>
             ))}
