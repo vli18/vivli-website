@@ -529,11 +529,11 @@ export default function OrchidPortfolio() {
 
                 <p
                   style={{
-                    fontSize: "1rem",
+                    fontSize: "1.1rem",
                     fontWeight: 300,
                     color: "rgba(255, 255, 255, 0.7)",
                     maxWidth: "100%",
-                    lineHeight: "1.5",
+                    lineHeight: "1.25",
                     whiteSpace: "pre-line",
                   }}
                 >
