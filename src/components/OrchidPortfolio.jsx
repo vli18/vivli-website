@@ -767,7 +767,7 @@ export default function OrchidPortfolio() {
               I explore how computation can emerge from material behavior. Working across computational design, digital fabrication, computer graphics, and HCI, I develop reconfigurable textile and soft-material systems where sensing, logic, and actuation are encoded into geometry and structure.
               <br />
               <br />
-              I am currently a researcher in the Computational Design Group @ Brown Visual Computing Lab and a Master's student in Electrical & Computer Engineering. I received my Sc.B. in Computer Science from Brown University.
+              I am currently a researcher in the Computational Design Group @ Brown Visual Computing Lab and pursuing an Sc.M. in Electrical & Computer Engineering. I received my Sc.B. in Computer Science from Brown University.
             </span>
           </p>
         </div>
