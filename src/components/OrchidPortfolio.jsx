@@ -21,22 +21,34 @@ export default function OrchidPortfolio() {
       id: 1,
       title: "Aerial Reverie",
       category: "Tech",
-      thumbnail: getImg("/src/portfolio-images/aerial-reverie/thumbnail.jpg"),
+      thumbnail: getImg("/src/portfolio-images/aerial-reverie/still-1.jpg"),
       description: "An immersive VR storyworld illuminated by coordinated Crazyflie drone flight paths",
       fullDescription:
       "Aerial Reverie is an immersive VR storyworld illuminated by the motion of Crazyflie drones, their coordinated flight paths controlled via Python and ROS. The choreographed trajectories assemble a dynamic cityscape that becomes both simulation and narrative device, examining collective intelligence, industrial expansion, and the tension between nature, home, and rapidly evolving built environments.",
       details: {
         year: "2024",
-        role: "",
-        mediums: "Python, ROS, VR, Crazyflie Drones",
+        role: "Creative Director, Programming, 3D Modeling",
+        mediums: "Python, ROS, Crazyflie Drones, Blender, After Effects, Ableton Live, Meta Quest 2",
       },
       images: [
-        { placeholder: "Hero Image", layout: "full" },
-        { placeholder: "Detail 1", layout: "half" },
-        { placeholder: "Detail 2", layout: "half" },
-        { placeholder: "Process", layout: "third" },
-        { placeholder: "Process 2", layout: "third" },
-        { placeholder: "Process 3", layout: "third" },
+        {
+          type: "video",
+          src: getImg("/src/portfolio-images/aerial-reverie/aerial-reverie.mp4"),
+          layout: "full",
+        },
+        {
+          type: "gif-row",
+          items: [
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-intro.gif"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-after-intro.gif"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spirals-start.gif"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spiraling.gif"),
+          ],
+        },
+        { type: "image",
+          src: getImg("/src/portfolio-images/aerial-reverie/process-stills.png"), 
+          layout: "full" 
+        },
       ],
     },
     {
@@ -50,7 +62,7 @@ export default function OrchidPortfolio() {
       details: {
         year: "2024",
         role: "Software & Hardware Integration, Product Design",
-        mediums: "Thermally Drawn Fibers, ML, Embedded Sensors",
+        mediums: "Arduino, ML, Thermally Drawn Fibers, Weaving Loom, Metal Hardware",
       },
       images: [
         { src: getImg("/src/portfolio-images/pawlink/pawlink.png"), layout: "full" },
@@ -60,19 +72,17 @@ export default function OrchidPortfolio() {
       id: 3,
       title: "Aligned",
       category: "Tech",
-      thumbnail: getImg("/src/portfolio-images/aligned/thumbnail.jpg"),
+      thumbnail: getImg("/src/portfolio-images/aligned/thumbnail.png"),
       description: "Smart-fabric posture-sensing system with real-time ML-based detection and haptic feedback",
       fullDescription:
       "Aligned is a smart-fabric posture-sensing system integrating a custom PCB with four I²C-networked accelerometers and a vibration motor for haptic feedback.\n\nA lightweight machine-learning model distinguishes upright vs. slouched posture in real time, forming the foundation for a textile-embedded interface that supports healthier body awareness.\n\nThe system includes both a fully functioning prototype demonstrating real-time posture detection and a complete hardware pipeline, from circuit schematic to manufactured PCB, ready for textile integration in future iterations.",
       details: {
         year: "2024",
-        role: "",
-        mediums: "Custom PCB, I²C, ML, Haptic Feedback",
+        role: "Software Lead (ML + Arduino), Hardware",
+        mediums: "KiCad, Custom PCB, I²C, ML, Haptic Feedback",
       },
       images: [
-        { placeholder: "Hero", layout: "full" },
-        { placeholder: "Detail 1", layout: "half" },
-        { placeholder: "Detail 2", layout: "half" },
+        { src: getImg("/src/portfolio-images/aligned/gallery-w-ml.png"), layout: "full" },
       ],
     },
     {
@@ -80,19 +90,17 @@ export default function OrchidPortfolio() {
       title: "Kinetic Pixels",
       category: "Tech",
       thumbnail: getImg(""),
-      description: "A reimagined 3D scene from Avatar: The Last Airbender coded in Three.js",
+      description: "WIP",
       fullDescription:
-      "A reimagination of a scene in the episode 'The Siege of the North' from Avatar: the Last Airbender.\n\nIn the Spirit Oasis, two koi fish — Tui and La — maintain the balance between the Earth and the Moon. When the fish are disturbed, chaos ensues.\n\nUsing ThreeJS and Blender, we modeled this scene with realistic water effects, dynamic lighting, and interacting koi fish simulations.",
+      "WIP",
       details: {
         year: "2025",
-        role: "",
-        mediums: "Three.js, Blender, GLSL",
+        role: "Solo",
+        mediums: "Python, ROS, MatLab",
       },
       images: [
         {
-          type: "iframe",
-          src: "https://spirit-oasis.vercel.app/",
-          layout: "full"
+          type: "placeholder", layout: "full"
         }
       ],
     },
@@ -106,7 +114,7 @@ export default function OrchidPortfolio() {
       "This project is a reimagination of a scene in the episode 'The Siege of the North' from Avatar: the Last Airbender. In the Spirit Oasis, two koi fish Tui and La maintain the balance between the Earth and the Moon. When the fish are disturbed, chaos ensues. \n\n Using ThreeJS and Blender, we modeled this scene using realistic water effects, lighting changes, and koi fish interaction.",
       details: {
         year: "2023",
-        role: "",
+        role: "Procedural Water + Grass, Custom Watercolor Toon Shading, 3D Modeling",
         mediums: "Three.js, Blender, GLSL",
       },
       images: [
@@ -121,22 +129,17 @@ export default function OrchidPortfolio() {
       id: 6,
       title: "NÜWA",
       category: "Fashion",
-      thumbnail: getImg("/src/portfolio-images/nuwa/thumbnail.png"),
+      thumbnail: getImg("/src/portfolio-images/nuwa/thumbnail2.png"),
       description: "Modernized hanfu and qipao challenging techno-Orientalist narratives through textile craft",
       fullDescription:
       "Showcased at Fashion@Brown Runway Show 2024 & Rhode Island Fashion Week 2024.\n\nAncient deity, new cyborg. One with earth, integrated in cyberspace.\n\nIn techno-Orientalism, the West views the Chinese body in contradicting space-times: a relic of the past and a future both feared and desired. It seeks to collect a drop of what the Chinese body can provide — culture, technology, sex — and in turn, create a perverse reality with its voyeuristic eyes.\n\nHow can women of the Chinese diaspora reject and subsequently remake this techno-orientalist framework?\n\nEmbody the paradox of temporalities and collapse contrasting timescales into the present moment. Primordial, earth-forming goddess and futuristic robot condensed into one in the Now: the modern woman. Fetishization, subjugation by the malicious eye — we repair the wounds of our broken heavens with our molded clay bodies and the garments that adorn them.\n\nBy crafting modernized hanfu and qipao dresses, interweaving the histories of silk and brocade with technology, the Chinese body is situated in all timeframes, toppling the binarist narrative generated by the West. Placed before the public eye, Nüwa asks the audience to confront the simultaneous pleasure and discomfort of the techno-Orientalist paradigm.",
       details: {
         year: "2024",
-        role: "",
-        mediums: "Textile Design, Fashion, Cultural Commentary",
+        role: "Solo",
+        mediums: "Brocade, Silk, LEDs",
       },
       images: [
-        { placeholder: "Runway 1", layout: "third" },
-        { placeholder: "Runway 2", layout: "third" },
-        { placeholder: "Runway 3", layout: "third" },
-        { placeholder: "Detail Shot", layout: "full" },
-        { placeholder: "Close-up 1", layout: "half" },
-        { placeholder: "Close-up 2", layout: "half" },
+          { src: getImg("/src/portfolio-images/nuwa/gallery.png"), layout: "full" },
       ],
     },
   ];
@@ -497,8 +500,8 @@ export default function OrchidPortfolio() {
                 <div
                   style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
-                    gap: "1.5rem",
+                    gridTemplateColumns: "auto max-content 1fr",
+                    columnGap: "2rem",
                     marginBottom: "1rem",
                     background: "rgba(0, 0, 0, 0.4)",
                     backdropFilter: "blur(10px)",
@@ -554,6 +557,7 @@ export default function OrchidPortfolio() {
                     full: { width: "100%", flexBasis: "100%" },
                     half: { width: "calc(50% - 0.5rem)", flexBasis: "calc(50% - 0.5rem)" },
                     third: { width: "calc(33.333% - 0.67rem)", flexBasis: "calc(33.333% - 0.67rem)" },
+                    quarter: { width: "calc(25% - 0.75rem)", flexBasis: "calc(25% - 0.75rem)" },
                     "two-thirds": { width: "calc(66.666% - 0.5rem)", flexBasis: "calc(66.666% - 0.5rem)" },
                   };
 
@@ -565,11 +569,8 @@ export default function OrchidPortfolio() {
                       key={index}
                       style={{
                         ...style,
-                        minHeight: "300px",
-                        background: "rgba(255, 255, 255, 0.05)",
-                        backdropFilter: "blur(10px)",
-                        // border: "1px solid rgba(255, 255, 255, 0.1)",
-                        // borderRadius: "8px",
+                        minHeight: image.type === "gif-row" ? "auto" : "300px",
+                        background: "transparent",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -580,16 +581,15 @@ export default function OrchidPortfolio() {
                     >
                       {image.type === "iframe" ? (
                         <div
-                        style={{
-                          position: "relative",
-                          width: "100%",
-                          paddingBottom: "56.25%", // 16:9 aspect ratio
-                          height: 0,
-                          borderRadius: "8px",
-                          overflow: "hidden",
-                          // border: "1px solid rgba(255, 255, 255, 0.1)",
-                          background: "rgba(255, 255, 255, 0.05)",
-                        }}
+                          style={{
+                            position: "relative",
+                            width: "100%",
+                            paddingBottom: "56.25%",
+                            height: 0,
+                            borderRadius: "8px",
+                            overflow: "hidden",
+                            background: "rgba(255, 255, 255, 0.05)",
+                          }}
                         >
                           <iframe
                             src={image.src}
@@ -605,6 +605,42 @@ export default function OrchidPortfolio() {
                             allow="fullscreen"
                           />
                         </div>
+                      ) : image.type === "gif-row" ? (
+                        <div
+                          style={{
+                            display: "grid",
+                            gridTemplateColumns: "repeat(4, 1fr)",
+                            gap: "0.75rem",
+                            width: "100%",
+                          }}
+                        >
+                          {image.items.map((src, i) => (
+                            <img
+                              key={i}
+                              src={src}
+                              alt={`Aerial Reverie gif ${i + 1}`}
+                              style={{
+                                width: "100%",
+                                height: "auto",
+                                display: "block",
+                                borderRadius: "6px",
+                              }}
+                            />
+                          ))}
+                        </div>
+                      ) : image.type === "video" ? (
+                        <video
+                          src={image.src}
+                          controls
+                          playsInline
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            borderRadius: "8px",
+                          }}
+                          autoPlay
+                        />
                       ) : image.src ? (
                         <img
                           src={image.src}
@@ -612,7 +648,7 @@ export default function OrchidPortfolio() {
                           style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
                       ) : (
-                        image.src
+                        image.placeholder
                       )}
                     </div>
                   );
@@ -718,18 +754,21 @@ export default function OrchidPortfolio() {
             vivian li
           </h1>
           <p
+            className="dotgothic16-regular"
             style={{
               fontSize: "1rem",
               maxWidth: "900px",
-              fontWeight: "300",
-              textShadow:
-                "0 0 3px rgba(0,0,0,1)",
-              lineHeight: "1.7",
+              // fontWeight: "100",
+              lineHeight: "1.5",
+              textShadow: "none",
             }}
           >
-            I explore how computation can emerge from material behavior. Working across computational design, digital fabrication, computer graphics, and HCI, I develop reconfigurable textile and soft-material systems where sensing, logic, and actuation are encoded into geometry and structure.            <br />
-            <br />
-            I am currently a researcher in the Computational Design Group @ Brown Visual Computing Lab. I received my Sc.B. in Computer Science from Brown University.
+            <span className="text-slab">
+              I explore how computation can emerge from material behavior. Working across computational design, digital fabrication, computer graphics, and HCI, I develop reconfigurable textile and soft-material systems where sensing, logic, and actuation are encoded into geometry and structure.
+              <br />
+              <br />
+              I am currently a researcher in the Computational Design Group @ Brown Visual Computing Lab and a Master's student in Electrical & Computer Engineering. I received my Sc.B. in Computer Science from Brown University.
+            </span>
           </p>
         </div>
 
