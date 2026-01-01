@@ -65,7 +65,7 @@ export default function OrchidPortfolio() {
           ],
         },
         { type: "image",
-          src: getImg("/src/portfolio-images/aerial-reverie/process-stills.png"), 
+          src: getImg("/src/portfolio-images/aerial-reverie/process-stills-2.png"), 
           layout: "full" 
         },
       ],
