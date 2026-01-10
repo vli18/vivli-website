@@ -17,25 +17,23 @@ export default function OrchidPortfolio() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const portfolioItems = [
-    // {
-    //   id: 1,
-    //   title: "Kinetic Pixels",
-    //   category: "Tech",
-    //   thumbnail: getImg(""),
-    //   description: "WIP",
-    //   fullDescription:
-    //   "WIP",
-    //   details: {
-    //     year: "2025",
-    //     role: "Solo",
-    //     mediums: "Python, ROS, MatLab",
-    //   },
-    //   images: [
-    //     {
-    //       type: "placeholder", layout: "full"
-    //     }
-    //   ],
-    // },
+    {
+      id: 1,
+      title: "Kinetic Pixels",
+      category: "Tech",
+      thumbnail: getImg("/src/portfolio-images/kinetic-pixels/thumbnail.png"),
+      description: "Kinetic Pixels investigates how data can function as cultural material crafted and dynamically configured by coordinated swarms.",
+      fullDescription: "Kinetic Pixels explores data as cultural material by translating symbolic, geographic, and historical information into rule-based mosaics constructed by coordinated aerial robots. Drawing inspiration from global tile traditions—such as Chinese 花砖, Iberian azulejos, and Islamic zellige—the project engages practices where complex cultural meaning emerges from simple, modular repetition.\n\nEight globally representative tile cultures are encoded as sparse 9-bit cellular automaton rulesets, combining a shared geographic grammar with deterministic identity bits derived from ISO standards and planetary context. These compact rules generate evolving mosaics whose similarities and differences emerge through rule-based pattern formation, and which are physically assembled, reconfigured, and animated by a multi-drone system.\n\nBy treating computation as a contemporary form of craft, Kinetic Pixels reframes tiles as both the building blocks of cities and the building blocks of data-driven space—asking how robotic systems might participate in the cultural production of material patterns, rather than merely executing them.",
+      details: {
+        year: "2025",
+        role: "Solo",
+        mediums: "Python, ROS, MatLab, Adobe Illustrator",
+      },
+      images: [
+        { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_tgt.png"), layout: "full" },
+        { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_all.png"), layout: "full" },
+      ],
+    },
     {
       id: 1,
       title: "Aerial Reverie",
