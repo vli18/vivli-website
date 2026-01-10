@@ -27,7 +27,7 @@ export default function OrchidPortfolio() {
       details: {
         year: "2025",
         role: "Solo",
-        mediums: "Python, ROS, MatLab, Adobe Illustrator",
+        mediums: "Python, ROS, MatLab",
       },
       images: [
         { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_tgt.png"), layout: "full" },
