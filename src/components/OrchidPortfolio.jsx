@@ -10,9 +10,7 @@ const getImg = (p) => {
   return imageModules[key] || '';
 };
 
-// =======================================================
 // Kinetic Pixels – 8×2 MP4 Grid
-// =======================================================
 function KineticPixelsGrid({ getImg }) {
   const countries = [
     "china",

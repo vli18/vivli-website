@@ -23,10 +23,10 @@ dist-ssr
 *.sln
 *.sw?
 src/portfolio-images/aerial-reverie/aerial-reverie.mp4
-src/portfolio-images/aerial-reverie/AR-clip-spirals-start.gif
-src/portfolio-images/aerial-reverie/AR-clip-spiraling.gif
-src/portfolio-images/aerial-reverie/AR-clip-after-intro.gif
-src/portfolio-images/aerial-reverie/AR-clip-intro.gif
+src/portfolio-images/aerial-reverie/AR-clip-spirals-start.mp4
+src/portfolio-images/aerial-reverie/AR-clip-spiraling.mp4
+src/portfolio-images/aerial-reverie/AR-clip-after-intro.mp4
+src/portfolio-images/aerial-reverie/AR-clip-intro.mp4
 
 src/portfolio-images/kinetic-pixels/mp4/china_ca.mp4
 src/portfolio-images/kinetic-pixels/mp4/china_drone_sim.mp4
