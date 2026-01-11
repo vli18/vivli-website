@@ -10,6 +10,122 @@ const getImg = (p) => {
   return imageModules[key] || '';
 };
 
+// =======================================================
+// Kinetic Pixels – 8×2 MP4 Grid
+// =======================================================
+function KineticPixelsGrid({ getImg }) {
+  const countries = [
+    "china",
+    "iran",
+    "morocco",
+    "spain",
+    "portugal",
+    "mexico",
+    "india",
+    "turkey",
+  ];
+
+  const videoRefs = useRef({});
+  const initialized = useRef(false);
+
+  // Render order
+  const renderSequence = [
+    ...countries.slice(0, 4).flatMap((country) => [
+      { key: `${country}_ca`, country, type: "ca" },
+      { key: `${country}_drone`, country, type: "drone" },
+    ]),
+    ...countries.slice(4).flatMap((country) => [
+      { key: `${country}_drone`, country, type: "drone" },
+      { key: `${country}_ca`, country, type: "ca" },
+    ]),
+  ];
+
+  // One-time paired random phase per country
+  useEffect(() => {
+    if (initialized.current) return;
+    initialized.current = true;
+
+    countries.forEach((country) => {
+      const ca = videoRefs.current[`${country}_ca`];
+      const drone = videoRefs.current[`${country}_drone`];
+
+      if (!ca || !drone) return;
+
+      let caReady = false;
+      let droneReady = false;
+
+      const tryStart = () => {
+        if (!caReady || !droneReady) return;
+
+        const duration = Math.min(ca.duration, drone.duration);
+        if (!duration || !isFinite(duration)) return;
+
+        // ONE shared random phase
+        const offset = Math.random() * duration;
+
+        ca.currentTime = offset;
+        drone.currentTime = offset;
+
+        ca.play().catch(() => {});
+        drone.play().catch(() => {});
+      };
+
+      ca.addEventListener(
+        "loadedmetadata",
+        () => {
+          caReady = true;
+          tryStart();
+        },
+        { once: true }
+      );
+
+      drone.addEventListener(
+        "loadedmetadata",
+        () => {
+          droneReady = true;
+          tryStart();
+        },
+        { once: true }
+      );
+    });
+  }, []);
+
+  // Render grid
+  return (
+    <div
+      style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(8, 1fr)",
+        gridTemplateRows: "repeat(2, 1fr)",
+        width: "100%",
+        aspectRatio: "8 / 2",
+        gap: 0,
+        overflow: "hidden",
+      }}
+    >
+      {renderSequence.map(({ key, country, type }) => (
+        <video
+          key={key}
+          ref={(el) => (videoRefs.current[key] = el)}
+          src={getImg(
+            `/src/portfolio-images/kinetic-pixels/mp4/${country}_${type === "ca" ? "ca" : "drone_sim"}.mp4`
+          )}
+          muted
+          playsInline
+          preload="auto"
+          loop
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function OrchidPortfolio() {
   const containerRef = useRef(null);
   const mousePos = useRef({ x: 0, y: 0 });
@@ -23,14 +139,15 @@ export default function OrchidPortfolio() {
       category: "Tech",
       thumbnail: getImg("/src/portfolio-images/kinetic-pixels/thumbnail.png"),
       description: "Kinetic Pixels investigates how data can function as cultural material crafted and dynamically configured by coordinated swarms.",
-      fullDescription: "Kinetic Pixels explores data as cultural material by translating symbolic, geographic, and historical information into rule-based mosaics constructed by coordinated aerial robots. Drawing inspiration from global tile traditions—such as Chinese 花砖, Iberian azulejos, and Islamic zellige—the project engages practices where complex cultural meaning emerges from simple, modular repetition. \n\n Eight globally representative tile cultures are encoded as sparse 9-bit cellular automaton rulesets, combining a shared geographic grammar with deterministic identity bits derived from ISO standards and planetary context. These compact rules generate evolving mosaics whose similarities and differences emerge through rule-based pattern formation, producing sequences of spatial configurations that reflect both cultural continuity and variation over time.\n\n To explore how these abstract rules might be materially constructed and transformed, Kinetic Pixels uses a realistic simulation of a coordinated swarm of Crazyflie aerial robots to assemble and reconfigure mosaics frame by frame. Transitions are executed through distance-aware task allocation, collision-constrained trajectory planning, and frame-to-frame tile reuse, enabling efficient addition, removal, and transfer of tiles as patterns evolve. Cellular automaton outputs are mapped from discrete grids to real-world spatial coordinates, grounding rule-based pattern formation in feasible multi-robot motion.\n\n By treating computation as a contemporary form of craft, Kinetic Pixels reframes tiles as both the building blocks of cities and the building blocks of data-driven space—asking how robotic systems might participate in the cultural production of material patterns, rather than merely executing them.",
+      fullDescription: "Kinetic Pixels explores data as cultural material by translating symbolic, geographic, and historical information into rule-based mosaics constructed by coordinated aerial robots. Drawing inspiration from global tile traditions—such as Chinese 花砖, Iberian azulejos, and Islamic zellige—the project engages practices where complex cultural meaning emerges from simple, modular repetition.\n\nEight globally representative tile cultures are encoded as sparse 9-bit cellular automaton rulesets, computed through a two-stage process. A shared geographic grammar establishes common structural constraints across all systems, while a second pass derives deterministic identity bits from ISO country codes and planetary parameters. This separation allows cultural similarity and difference to emerge through rule-based pattern formation rather than visual imitation, producing evolving mosaics whose spatial sequences reflect both continuity and variation over time.\n\nTo explore how these abstract rules might be materially constructed and transformed, Kinetic Pixels uses a realistic simulation of a coordinated swarm of Crazyflie aerial robots to assemble and reconfigure mosaics frame by frame. Transitions are executed through distance-aware task allocation, collision-constrained trajectory planning, and frame-to-frame tile reuse, enabling efficient addition, removal, and transfer of tiles as patterns evolve. Cellular automaton outputs are mapped from discrete grids to real-world spatial coordinates, grounding rule-based pattern formation in feasible multi-robot motion.\n\nBy treating computation as a contemporary form of craft, Kinetic Pixels reframes tiles as both the building blocks of cities and the building blocks of data-driven space—asking how robotic systems might participate in the cultural production of material patterns, rather than merely executing them.",
       details: {
         year: "2025",
         role: "Solo",
         mediums: "Python, ROS, MatLab",
       },
       images: [
-        { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_tgt.png"), layout: "full" },
+        { type: "kinetic-grid", },
+        // { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_tgt.png"), layout: "full" },
         { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_all.png"), layout: "full" },
       ],
     },
@@ -645,6 +762,15 @@ export default function OrchidPortfolio() {
                           alt={image.placeholder}
                           style={{ width: "100%", height: "100%", objectFit: "cover" }}
                         />
+                      ) : image.type === "kinetic-grid" ? (
+                        <div
+                          style={{
+                            width: "100%",
+                            margin: "2rem 0",
+                          }}
+                        >
+                          <KineticPixelsGrid getImg={getImg} />
+                        </div>
                       ) : (
                         image.placeholder
                       )}
