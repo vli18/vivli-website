@@ -170,12 +170,12 @@ export default function OrchidPortfolio() {
           layout: "full",
         },
         {
-          type: "gif-row",
+          type: "video-row",
           items: [
-            getImg("/src/portfolio-images/aerial-reverie/AR-clip-intro.gif"),
-            getImg("/src/portfolio-images/aerial-reverie/AR-clip-after-intro.gif"),
-            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spirals-start.gif"),
-            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spiraling.gif"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-intro.mp4"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-after-intro.mp4"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spirals-start.mp4"),
+            getImg("/src/portfolio-images/aerial-reverie/AR-clip-spiraling.mp4"),
           ],
         },
         { type: "image",
@@ -683,7 +683,7 @@ export default function OrchidPortfolio() {
                       key={index}
                       style={{
                         ...style,
-                        minHeight: image.type === "gif-row" ? "auto" : "300px",
+                        minHeight: image.type === "video-row" ? "auto" : "300px",
                         background: "transparent",
                         display: "flex",
                         alignItems: "center",
@@ -719,7 +719,7 @@ export default function OrchidPortfolio() {
                             allow="fullscreen"
                           />
                         </div>
-                      ) : image.type === "gif-row" ? (
+                      ) : image.type === "video-row" ? (
                         <div
                           style={{
                             display: "grid",
@@ -729,15 +729,21 @@ export default function OrchidPortfolio() {
                           }}
                         >
                           {image.items.map((src, i) => (
-                            <img
+                            <video
                               key={i}
                               src={src}
-                              alt={`Aerial Reverie gif ${i + 1}`}
+                              alt={`Aerial Reverie mp4 ${i + 1}`}
+                              autoPlay
+                              loop
+                              muted
+                              playsInline
+                              preload="auto"
                               style={{
                                 width: "100%",
                                 height: "auto",
                                 display: "block",
                                 borderRadius: "6px",
+                                objectFit: "cover",
                               }}
                             />
                           ))}
