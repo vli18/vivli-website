@@ -143,8 +143,8 @@ export default function OrchidPortfolio() {
         mediums: "Python, ROS, MatLab",
       },
       images: [
-        { type: "kinetic-grid", },
-        // { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_tgt.png"), layout: "full" },
+        // { type: "kinetic-grid", },
+        { type: "video", src: getImg("/src/portfolio-images/kinetic-pixels/header_tiles.mp4"), layout: "full" },
         { src: getImg("/src/portfolio-images/kinetic-pixels/tiles_all.png"), layout: "full" },
       ],
     },
@@ -746,20 +746,29 @@ export default function OrchidPortfolio() {
                             />
                           ))}
                         </div>
-                      ) : image.type === "video" ? (
-                        <video
-                          src={image.src}
-                          controls
-                          playsInline
-                          style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "cover",
-                            borderRadius: "8px",
-                          }}
-                          autoPlay
-                        />
-                      ) : image.src ? (
+                      ) : image.type === "video" ? (() => {
+                        const isKineticHeader =
+                        image.src.includes("kinetic-pixels/header_tiles");
+                    
+                        return (
+                          <video
+                            src={image.src}
+                            autoPlay
+                            loop={isKineticHeader}
+                            muted={isKineticHeader}
+                            controls={!isKineticHeader}
+                            playsInline
+                            preload="auto"
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              borderRadius: "8px",
+                              pointerEvents: isKineticHeader ? "none" : "auto",
+                            }}
+                          />
+                        );
+                      })() : image.src ? (
                         <img
                           src={image.src}
                           alt={image.placeholder}
