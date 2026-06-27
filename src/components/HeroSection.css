@@ -1,0 +1,50 @@
+.hero-container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 4rem 5rem 2rem 5rem;
+}
+
+.portrait-bio-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.75rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.portrait-img {
+  width: 285px;
+  height: 395px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 4rem 1.5rem 2rem 1.5rem;
+  }
+
+  .portrait-bio-row {
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 1.25rem;
+  }
+
+  .portrait-img {
+    width: 280px;
+    height: auto;
+  }
+
+  .bio-section {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 1.5rem !important;
+    box-sizing: border-box;
+  }
+}

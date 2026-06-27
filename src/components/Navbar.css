@@ -1,0 +1,24 @@
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-decorative {
+  flex: 1;
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.92rem;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  white-space: nowrap;
+  padding: 0 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+  .nav-links button {
+    font-size: 0.85rem !important;
+  }
+}
