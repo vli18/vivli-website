@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11">
+  <rect width="11" height="11" fill="#0a0a0a"/>
+  <!-- top petal: turquoise -->
+  <rect x="5" y="0" width="1" height="1" fill="#5cbcbc"/>
+  <rect x="4" y="1" width="3" height="3" fill="#5cbcbc"/>
+  <!-- bottom petal -->
+  <rect x="4" y="7" width="3" height="3" fill="#5cbcbc"/>
+  <rect x="5" y="10" width="1" height="1" fill="#5cbcbc"/>
+  <!-- left petal: periwinkle -->
+  <rect x="0" y="5" width="1" height="1" fill="#7878cc"/>
+  <rect x="1" y="4" width="3" height="3" fill="#7878cc"/>
+  <!-- right petal -->
+  <rect x="7" y="4" width="3" height="3" fill="#7878cc"/>
+  <rect x="10" y="5" width="1" height="1" fill="#7878cc"/>
+  <!-- center -->
+  <rect x="4" y="4" width="3" height="3" fill="#90d0d8"/>
+  <rect x="5" y="5" width="1" height="1" fill="#ffffff" opacity="0.9"/>
+</svg>
