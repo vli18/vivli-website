@@ -42,8 +42,8 @@ export default function PublicationsSection() {
             <p style={{ fontSize: '0.9rem', color: 'rgba(0, 0, 0, 0.45)', marginBottom: '0.5rem' }}>{pub.venue}</p>
             {(pub.pageUrl || pub.paperUrl) && (
               <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                {pub.pageUrl && <a href={pub.pageUrl} target="_blank" rel="noreferrer" className="pub-link-btn">Page</a>}
-                {pub.paperUrl && <a href={pub.paperUrl} target="_blank" rel="noreferrer" className="pub-link-btn">Paper</a>}
+                {pub.pageUrl && <a href={pub.pageUrl} target="_blank" rel="noreferrer" className="link-btn">Page</a>}
+                {pub.paperUrl && <a href={pub.paperUrl} target="_blank" rel="noreferrer" className="link-btn">Paper</a>}
               </div>
             )}
           </div>

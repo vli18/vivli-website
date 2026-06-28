@@ -140,7 +140,25 @@ const asciiFragmentShader = `
   }
 `;
 
-export function useOrchidBackground(containerRef) {
+// Orchids stored as normalized relative positions so they can be
+// recomputed for any aspect ratio without changing their layout.
+const orchidRelative = Array.from({ length: ORCHID_COUNT }).map((_, i) => ({
+  side: i < ORCHID_COUNT / 2 ? -1 : 1,
+  relX: Math.random(),           // 0 = just inside edge zone, 1 = outermost
+  relY: Math.random() * 2.4 - 1.2,
+  scale: 0.4 + Math.random() * 0.4,
+  timeOffset: Math.random() * 10.0,
+  rotation: Math.random() * Math.PI * 2.0,
+}));
+
+function computePositions(aspect) {
+  const edgeInner = 0.46 * aspect;
+  return orchidRelative.map(
+    (o) => new THREE.Vector2(o.side * (edgeInner + o.relX * aspect * 0.58), o.relY)
+  );
+}
+
+export function useOrchidBackground(containerRef, pausedRef) {
   const mousePos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -148,6 +166,7 @@ export function useOrchidBackground(containerRef) {
     const container = containerRef.current;
 
     let renderer, orchidScene, asciiScene, rt, animationId;
+    let orchidMaterial, asciiMaterial;
     const clock = new THREE.Clock();
 
     const handleMouseMove = (e) => {
@@ -159,28 +178,26 @@ export function useOrchidBackground(containerRef) {
       };
     };
 
+    const handleResize = () => {
+      if (!renderer || !orchidMaterial || !asciiMaterial || !rt) return;
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+      const aspect = width / height;
+
+      renderer.setSize(width, height);
+      rt.setSize(width, height);
+      orchidMaterial.uniforms.u_resolution.value.set(width, height);
+      orchidMaterial.uniforms.u_pos.value = computePositions(aspect);
+      asciiMaterial.uniforms.resolution.value.set(width, height);
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
-
-    // Distribute orchids along left and right edges only.
-    // Positions are in aspect-adjusted UV space (same coords as the shader's uv after
-    // uv.x *= aspect), so we compute the edge zone using the current aspect ratio.
-    const aspect = window.innerWidth / window.innerHeight;
-    const edgeInner = 0.46 * aspect;
-
-    const orchids = Array.from({ length: ORCHID_COUNT }).map((_, i) => {
-      const side = i < ORCHID_COUNT / 2 ? -1 : 1;
-      const absX = edgeInner + Math.random() * (aspect * 0.58);
-      return {
-        pos: new THREE.Vector2(side * absX, Math.random() * 2.4 - 1.2),
-        scale: 0.4 + Math.random() * 0.4,
-        timeOffset: Math.random() * 10.0,
-        rotation: Math.random() * Math.PI * 2.0,
-      };
-    });
+    window.addEventListener('resize', handleResize);
 
     const init = () => {
       const width = window.innerWidth;
       const height = window.innerHeight;
+      const aspect = width / height;
 
       while (container.firstChild) container.removeChild(container.firstChild);
 
@@ -192,16 +209,16 @@ export function useOrchidBackground(containerRef) {
       const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
       rt = new THREE.WebGLRenderTarget(width, height);
 
-      const orchidMaterial = new THREE.ShaderMaterial({
+      orchidMaterial = new THREE.ShaderMaterial({
         vertexShader: orchidVertexShader,
         fragmentShader: orchidFragmentShader,
         uniforms: {
           u_time: { value: 0 },
           u_resolution: { value: new THREE.Vector2(width, height) },
-          u_pos: { value: orchids.map((o) => o.pos) },
-          u_scale: { value: orchids.map((o) => o.scale) },
-          u_timeOffset: { value: orchids.map((o) => o.timeOffset) },
-          u_rot: { value: orchids.map((o) => o.rotation) },
+          u_pos: { value: computePositions(aspect) },
+          u_scale: { value: orchidRelative.map((o) => o.scale) },
+          u_timeOffset: { value: orchidRelative.map((o) => o.timeOffset) },
+          u_rot: { value: orchidRelative.map((o) => o.rotation) },
           u_mouse: { value: new THREE.Vector2(0, 0) },
         },
       });
@@ -209,7 +226,7 @@ export function useOrchidBackground(containerRef) {
       orchidScene = new THREE.Scene();
       orchidScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), orchidMaterial));
 
-      const asciiMaterial = new THREE.ShaderMaterial({
+      asciiMaterial = new THREE.ShaderMaterial({
         vertexShader: `
           varying vec2 vUv;
           void main(){ vUv = uv; gl_Position = vec4(position, 1.0); }
@@ -227,6 +244,7 @@ export function useOrchidBackground(containerRef) {
 
       const animate = () => {
         animationId = requestAnimationFrame(animate);
+        if (pausedRef?.current) return;
         const t = clock.getElapsedTime();
         orchidMaterial.uniforms.u_time.value = t;
         orchidMaterial.uniforms.u_mouse.value.set(mousePos.current.x, mousePos.current.y);
@@ -244,6 +262,7 @@ export function useOrchidBackground(containerRef) {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
       try {
         if (renderer) renderer.dispose();

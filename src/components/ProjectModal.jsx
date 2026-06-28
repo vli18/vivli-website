@@ -1,4 +1,5 @@
 import React from 'react';
+import './ProjectModal.css';
 
 const pillStyles = [
   { label: null,       bg: 'rgba(0,0,0,0.06)',       border: 'rgba(0,0,0,0.1)',       color: 'rgba(0,0,0,0.55)' },
@@ -44,12 +45,12 @@ function GalleryItem({ image, projectTitle }) {
     return (
       <video
         src={image.src}
-        autoPlay
+        autoPlay={isKineticHeader}
         loop={isKineticHeader}
         muted={isKineticHeader}
         controls={!isKineticHeader}
         playsInline
-        preload="auto"
+        preload={isKineticHeader ? 'auto' : 'metadata'}
         style={{
           width: '100%',
           height: 'auto',
@@ -66,6 +67,7 @@ function GalleryItem({ image, projectTitle }) {
       <img
         src={image.src}
         alt={projectTitle}
+        loading="lazy"
         style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
       />
     );
@@ -77,32 +79,10 @@ function GalleryItem({ image, projectTitle }) {
 export default function ProjectModal({ selectedProject, portfolioItems, onClose, onSelect }) {
   return (
     <div
+      className="modal-overlay"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
-      style={{
-        position: 'fixed',
-        top: 0, left: 0, right: 0, bottom: 0,
-        zIndex: 200,
-        background: 'rgba(0, 0, 0, 0.45)',
-        backdropFilter: 'blur(6px)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '2rem',
-      }}
     >
-      <div
-        style={{
-          width: '100%',
-          maxWidth: '1100px',
-          maxHeight: '88vh',
-          background: 'white',
-          borderRadius: '12px',
-          overflow: 'hidden',
-          display: 'flex',
-          flexDirection: 'column',
-          boxShadow: '0 24px 64px rgba(0, 0, 0, 0.22)',
-        }}
-      >
+      <div className="modal-inner">
         {/* Thumbnail nav strip */}
         <div
           style={{
@@ -145,6 +125,7 @@ export default function ProjectModal({ selectedProject, portfolioItems, onClose,
 
           <button
             onClick={onClose}
+            className="modal-close-btn"
             style={{
               marginLeft: 'auto',
               flexShrink: 0,
@@ -160,12 +141,14 @@ export default function ProjectModal({ selectedProject, portfolioItems, onClose,
               alignItems: 'center',
               justifyContent: 'center',
               padding: 0,
-              lineHeight: '32px',
             }}
             onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(0,0,0,0.06)'; e.currentTarget.style.color = 'black'; }}
             onMouseLeave={(e) => { e.currentTarget.style.background = 'none'; e.currentTarget.style.color = 'rgba(0,0,0,0.5)'; }}
           >
-            ×
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+              <line x1="1" y1="1" x2="11" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              <line x1="11" y1="1" x2="1" y2="11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+            </svg>
           </button>
         </div>
 
@@ -189,18 +172,18 @@ export default function ProjectModal({ selectedProject, portfolioItems, onClose,
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.35rem', marginBottom: '0.9rem' }}>
               {[
                 { ...pillStyles[0], val: selectedProject.details.year },
-                { ...pillStyles[1], val: selectedProject.details.role },
-                { ...pillStyles[2], val: selectedProject.details.mediums },
+                { ...pillStyles[1], label: selectedProject.details.roleLabel ?? 'Role', val: selectedProject.details.role },
+                { ...pillStyles[2], label: selectedProject.details.mediumsLabel ?? 'Mediums', val: selectedProject.details.mediums },
               ].map(({ label, val, bg, border, color }) => (
                 <span
                   key={label ?? 'year'}
                   style={{
-                    fontSize: '0.75rem',
+                    fontSize: '0.82rem',
                     color,
                     background: bg,
                     border: `1px solid ${border}`,
                     borderRadius: '20px',
-                    padding: '0.2rem 0.65rem',
+                    padding: '0.28rem 0.85rem',
                   }}
                 >
                   {label && <span style={{ fontWeight: 600, marginRight: '0.3rem' }}>{label}:</span>}
@@ -221,6 +204,22 @@ export default function ProjectModal({ selectedProject, portfolioItems, onClose,
             >
               {selectedProject.fullDescription}
             </p>
+
+            {selectedProject.links?.length > 0 && (
+              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginTop: '0.9rem' }}>
+                {selectedProject.links.map(({ label, url }) => (
+                  <a
+                    key={label}
+                    href={url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="link-btn"
+                  >
+                    {label}
+                  </a>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Gallery */}

@@ -1,3 +1,36 @@
+.nav-dither {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 99;
+}
+
+.nav-dither-band {
+  height: 8px;
+}
+
+/* Band 1: large 8px checkerboard → immediately visible pixel squares right below nav */
+.band-1 {
+  background: repeating-conic-gradient(rgba(0,0,0,0.92) 0% 25%, transparent 0% 50%) 0 0 / 8px 8px;
+}
+
+/* Band 2: fine 4px checkerboard → denser-looking middle band */
+.band-2 {
+  background: repeating-conic-gradient(rgba(0,0,0,0.88) 0% 25%, transparent 0% 50%) 0 0 / 4px 4px;
+}
+
+/* Band 3: sparse dots in 8px grid → open dither */
+.band-3 {
+  background: radial-gradient(circle at center, rgba(0,0,0,0.82) 30%, transparent 30%) 0 0 / 8px 8px;
+}
+
+/* Band 4: very sparse dots → almost gone */
+.band-4 {
+  background: radial-gradient(circle at center, rgba(0,0,0,0.65) 20%, transparent 20%) 0 0 / 10px 10px;
+}
+
 .nav-links {
   display: flex;
   gap: 2rem;
@@ -5,13 +38,6 @@
 
 .nav-decorative {
   flex: 1;
-  overflow: hidden;
-  color: rgba(255, 255, 255, 0.5);
-  font-size: 0.92rem;
-  letter-spacing: 0.06em;
-  pointer-events: none;
-  white-space: nowrap;
-  padding: 0 1.25rem;
 }
 
 @media (max-width: 768px) {

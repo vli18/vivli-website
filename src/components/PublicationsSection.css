@@ -33,23 +33,6 @@
   object-fit: cover;
 }
 
-.pub-link-btn {
-  display: inline-block;
-  padding: 0.4rem 1.1rem;
-  border-radius: 6px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  background: white;
-  color: rgba(0, 0, 0, 0.75);
-  border: 1.5px solid rgba(0, 0, 0, 0.2);
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  cursor: pointer;
-}
-
-.pub-link-btn:hover {
-  background: rgba(0, 0, 0, 0.07);
-}
 
 @media (max-width: 768px) {
   .pub-card {

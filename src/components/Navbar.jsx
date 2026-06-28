@@ -1,9 +1,6 @@
 import React from 'react';
 import './Navbar.css';
 
-const DECORATIVE_UNIT = '· • —– ٠ ٠ —– • · · • —– ٠ ✤ ٠ —– • · · • —– ٠ ٠ —– • · ';
-const DECORATIVE_TEXT = DECORATIVE_UNIT.repeat(6);
-
 const navStyle = {
   position: 'fixed',
   top: 0,
@@ -32,14 +29,31 @@ const navButtonStyle = {
 export default function Navbar({ scrollToSection }) {
   return (
     <nav style={navStyle}>
-      <div className="font-argent-italic" style={{ fontSize: '1.3rem', fontWeight: '400', color: 'white' }}>
+      <div className="nav-dither" aria-hidden="true">
+        <div className="nav-dither-band band-1" />
+        <div className="nav-dither-band band-2" />
+        <div className="nav-dither-band band-3" />
+        <div className="nav-dither-band band-4" />
+      </div>
+
+      <div className="font-argent-normal" style={{ fontSize: '1.3rem', fontWeight: '400', color: 'white' }}>
         vivian li
       </div>
 
-      <div className="nav-decorative">{DECORATIVE_TEXT}</div>
+      <div className="nav-decorative" />
 
       <div className="nav-links">
         <button
+          className="font-argent-normal"
+          onClick={() => scrollToSection('about')}
+          style={navButtonStyle}
+          onMouseEnter={(e) => (e.target.style.opacity = 1)}
+          onMouseLeave={(e) => (e.target.style.opacity = 0.8)}
+        >
+          About
+        </button>
+        <button
+          className="font-argent-normal"
           onClick={() => scrollToSection('publications')}
           style={navButtonStyle}
           onMouseEnter={(e) => (e.target.style.opacity = 1)}
@@ -48,6 +62,7 @@ export default function Navbar({ scrollToSection }) {
           Publications
         </button>
         <button
+          className="font-argent-normal"
           onClick={() => scrollToSection('portfolio')}
           style={navButtonStyle}
           onMouseEnter={(e) => (e.target.style.opacity = 1)}
@@ -55,7 +70,7 @@ export default function Navbar({ scrollToSection }) {
         >
           Projects
         </button>
-        <button style={{ ...navButtonStyle, cursor: 'default', opacity: 0.4 }}>CV</button>
+        <button className="font-argent-normal" style={{ ...navButtonStyle, cursor: 'default', opacity: 0.4 }}>CV</button>
       </div>
     </nav>
   );

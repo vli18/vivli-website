@@ -1,10 +1,10 @@
-const imageModules = import.meta.glob('../portfolio-images/**', { eager: true, as: 'url' });
+const imageModules = import.meta.glob('../assets/**', { eager: true, as: 'url' });
 
 export const getImg = (p) => {
   if (!p) return '';
   const normalized = p
-    .replace(/^\.?\/?src\/portfolio-images\/?/, '')
-    .replace(/^\.?\/?portfolio-images\/?/, '');
-  const key = `../portfolio-images/${normalized}`;
+    .replace(/^\.?\/?src\/assets\/?/, '')
+    .replace(/^\.?\/?assets\/?/, '');
+  const key = `../assets/${normalized}`;
   return imageModules[key] || '';
 };

@@ -106,23 +106,29 @@ export default function ProjectsSection({ portfolioItems, activeFilter, setActiv
             </div>
 
             <div style={{ padding: '1.5rem' }}>
-              <div
-                style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}
-              >
-                <h3 style={{ fontSize: '1.0rem', fontWeight: '400', margin: 0 }}>{item.title}</h3>
-                <span
-                  style={{
-                    fontSize: '0.75rem',
-                    color: 'rgba(0, 0, 0, 0.45)',
-                    background: 'rgba(0, 0, 0, 0.07)',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '12px',
-                  }}
-                >
-                  {item.category}
-                </span>
+              <div className="project-card-header">
+                <h3 style={{ fontSize: '1.05rem', fontWeight: '400', margin: 0 }}>{item.title}</h3>
+                {item.tags?.length > 0 && (
+                <div className="project-card-tags">
+                  {item.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      style={{
+                        fontSize: '0.75rem',
+                        color: 'rgba(90, 90, 185, 0.9)',
+                        background: 'rgba(180, 180, 255, 0.18)',
+                        border: '1px solid rgba(160, 160, 240, 0.35)',
+                        borderRadius: '10px',
+                        padding: '0.15rem 0.55rem',
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                )}
               </div>
-              <p style={{ fontSize: '0.8rem', fontWeight: 300, color: 'rgba(0, 0, 0, 0.6)', margin: 0 }}>
+              <p style={{ fontSize: '0.85rem', fontWeight: 300, color: 'rgba(0, 0, 0, 0.6)', margin: 0 }}>
                 {item.description}
               </p>
             </div>

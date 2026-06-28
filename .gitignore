@@ -22,8 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-src/portfolio-images/aerial-reverie/aerial-reverie.mp4
-src/portfolio-images/aerial-reverie/AR-clip-spirals-start.mp4
-src/portfolio-images/aerial-reverie/AR-clip-spiraling.mp4
-src/portfolio-images/aerial-reverie/AR-clip-after-intro.mp4
-src/portfolio-images/aerial-reverie/AR-clip-intro.mp4
+video-originals/
+src/assets/projects/color-me-noisy/final_vid.mov

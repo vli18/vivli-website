@@ -19,7 +19,7 @@ export const publications = [
     title: 'Diceplay: A Modular Canvas for Physical Image Composition',
     authors: 'Milin Kodnongbua, Zihan Jack Zhang, Shishi Xiao, Vivian Li, Heather Robertson, Rulin Chen, David Laidlaw, Adriana Schulz',
     venue: 'SIGGRAPH • 2026',
-    thumbnail: getImg('/src/portfolio-images/diceplay/2026-diceplay.png'),
+    thumbnail: getImg('/src/assets/images/diceplay/2026-diceplay.png'),
     thumbnailFit: 'contain',
     pageUrl: 'https://www.computationaldesign.group/publications/diceplay',
     paperUrl: diceplayPaper,
@@ -30,7 +30,7 @@ export const publications = [
     authors:
       'Nikhil Gupta, Henry Cheung, Syamantak Payra, Gabriel Loke, Jenny Li, Yongyi Zhao, Latika Balachander, Ella Son, Vivian Li, Samuel Kravitz, Sehar Lohawala, John Joannopoulos & Yoel Fink',
     venue: 'Nature • 2025',
-    thumbnail: getImg('/src/portfolio-images/single-fibre/dither_it_figure-1.png'),
+    thumbnail: getImg('/src/assets/images/single-fibre/dither_it_figure-1.png'),
     thumbnailFit: 'cover',
     pageUrl: 'https://www.nature.com/articles/s41586-024-08568-6',
     paperUrl: naturePaper,

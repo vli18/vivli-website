@@ -4,7 +4,7 @@ import './HeroSection.css';
 
 export default function HeroSection() {
   return (
-    <div className="hero-container">
+    <div id="about" className="hero-container">
       <h1
         className="font-argent-italic"
         style={{
