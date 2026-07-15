@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import './ProjectModal.css';
 
 const pillStyles = [
@@ -41,22 +41,22 @@ function GalleryItem({ image, projectTitle }) {
   }
 
   if (image.type === 'video') {
-    const isKineticHeader = image.src.includes('kinetic-pixels/header_tiles');
+    const autoplay = !!image.autoplay;
     return (
       <video
         src={image.src}
-        autoPlay={isKineticHeader}
-        loop={isKineticHeader}
-        muted={isKineticHeader}
-        controls={!isKineticHeader}
+        autoPlay={autoplay}
+        loop={autoplay}
+        muted={autoplay}
+        controls={!autoplay}
         playsInline
-        preload={isKineticHeader ? 'auto' : 'metadata'}
+        preload={autoplay ? 'auto' : 'metadata'}
         style={{
           width: '100%',
           height: 'auto',
           display: 'block',
           objectFit: 'cover',
-          pointerEvents: isKineticHeader ? 'none' : 'auto',
+          pointerEvents: autoplay ? 'none' : 'auto',
         }}
       />
     );
@@ -77,6 +77,13 @@ function GalleryItem({ image, projectTitle }) {
 }
 
 export default function ProjectModal({ selectedProject, portfolioItems, onClose, onSelect }) {
+  const thumbnailRefs = useRef({});
+
+  useEffect(() => {
+    const el = thumbnailRefs.current[selectedProject.id];
+    if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [selectedProject.id]);
+
   return (
     <div
       className="modal-overlay"
@@ -99,6 +106,7 @@ export default function ProjectModal({ selectedProject, portfolioItems, onClose,
           {portfolioItems.map((item) => (
             <div
               key={item.id}
+              ref={(el) => { thumbnailRefs.current[item.id] = el; }}
               onClick={() => onSelect(item)}
               title={item.title}
               style={{

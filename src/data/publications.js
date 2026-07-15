@@ -1,14 +1,14 @@
 import { getImg } from '../utils/imageLoader';
 import diceplayPaper from '../assets/papers/SIG-2026-DicePlay.pdf';
 import naturePaper from '../assets/papers/Nature-2025-SingleFibre.pdf';
-import stitchswitchTeaser from '../assets/images/stitchswitch/main-teaser.png';
+import stitchswitchTeaser from '../assets/images/stitchswitch/main-teaser-nosleeve.png';
 
 export const publications = [
   {
     id: 'stitchswitch',
     title: 'StitchSwitch: Programmable Surface Deformation and Bistability in Embroidered Textiles',
     authors: 'Vivian Li, Milin Kodnongbua, Heather Robertson, Yiyue Luo, Adriana Schulz',
-    venue: 'UIST (Accepted) • 2026',
+    venue: 'ACM UIST (Conditionally Accepted) • 2026',
     thumbnail: stitchswitchTeaser,
     thumbnailFit: 'contain',
     pageUrl: null,
@@ -18,7 +18,7 @@ export const publications = [
     id: 'diceplay',
     title: 'Diceplay: A Modular Canvas for Physical Image Composition',
     authors: 'Milin Kodnongbua, Zihan Jack Zhang, Shishi Xiao, Vivian Li, Heather Robertson, Rulin Chen, David Laidlaw, Adriana Schulz',
-    venue: 'SIGGRAPH • 2026',
+    venue: 'ACM SIGGRAPH • 2026',
     thumbnail: getImg('/src/assets/images/diceplay/2026-diceplay.png'),
     thumbnailFit: 'contain',
     pageUrl: 'https://www.computationaldesign.group/publications/diceplay',

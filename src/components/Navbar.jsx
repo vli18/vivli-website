@@ -1,5 +1,6 @@
 import React from 'react';
 import './Navbar.css';
+import cvPdf from '../assets/papers/VL-CV-July2026.pdf';
 
 const navStyle = {
   position: 'fixed',
@@ -70,7 +71,15 @@ export default function Navbar({ scrollToSection }) {
         >
           Projects
         </button>
-        <button className="font-argent-normal" style={{ ...navButtonStyle, cursor: 'default', opacity: 0.4 }}>CV</button>
+        <a
+          href={cvPdf}
+          target="_blank"
+          rel="noreferrer"
+          className="font-argent-normal"
+          style={{ ...navButtonStyle, textDecoration: 'none' }}
+          onMouseEnter={(e) => (e.target.style.opacity = 1)}
+          onMouseLeave={(e) => (e.target.style.opacity = 0.8)}
+        >CV</a>
       </div>
     </nav>
   );

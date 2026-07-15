@@ -152,7 +152,7 @@ const orchidRelative = Array.from({ length: ORCHID_COUNT }).map((_, i) => ({
 }));
 
 function computePositions(aspect) {
-  const edgeInner = 0.46 * aspect;
+  const edgeInner = 0.56 * aspect;
   return orchidRelative.map(
     (o) => new THREE.Vector2(o.side * (edgeInner + o.relX * aspect * 0.58), o.relY)
   );
