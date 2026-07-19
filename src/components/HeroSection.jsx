@@ -1,7 +1,7 @@
 import React from 'react';
 import picofme from '../assets/images/picofme.png';
 import './HeroSection.css';
-// import cvPdf from '../assets/papers/VL-CV-July2026.pdf';
+// import cvPdf from '../assets/papers/VivianLi-CV-July2026.pdf';
 
 const PX = 2;
 

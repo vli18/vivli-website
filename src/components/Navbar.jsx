@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navbar.css';
-import cvPdf from '../assets/papers/VL-CV-July2026.pdf';
+import cvPdf from '../assets/papers/VivianLi-CV-July2026.pdf';
 
 const navStyle = {
   position: 'fixed',
