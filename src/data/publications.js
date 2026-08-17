@@ -8,7 +8,7 @@ export const publications = [
     id: 'stitchswitch',
     title: 'StitchSwitch: Programmable Surface Deformation and Bistability in Embroidered Textiles',
     authors: 'Vivian Li, Milin Kodnongbua, Heather Robertson, Yiyue Luo, Adriana Schulz',
-    venue: 'ACM UIST (Conditionally Accepted) • 2026',
+    venue: 'ACM UIST (Accepted) • 2026',
     thumbnail: stitchswitchTeaser,
     thumbnailFit: 'contain',
     pageUrl: null,

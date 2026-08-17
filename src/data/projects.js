@@ -7,7 +7,7 @@ export const portfolioItems = [
     category: 'Tech',
     thumbnail: getImg('/src/assets/projects/kinetic-pixels/thumbnail.webp'),
     description:
-      'Kinetic Pixels explores data as cultural material to be crafted and dynamically configured by coordinated robots.',
+      'Generative simulation for exploring data as cultural material crafted and dynamically configured by coordinated robots.',
     fullDescription:
       'Kinetic Pixels explores data as cultural material by transforming symbolic, geographic, and historical information into evolving mosaics that can be assembled by coordinated aerial robots. Drawing inspiration from modular tile traditions across cultures, the project develops computational grammars that generate distinct yet structurally related patterns, translating cultural information into dynamic forms of architectural ornament.\n\nThrough simulations of robotic swarm construction, these digital mosaics are visualized as physically realizable assemblies, connecting abstract computational rules with robotic fabrication. Kinetic Pixels ultimately asks how autonomous systems can contribute to the cultural production of material patterns, positioning computation not only as a tool for fabrication but as a new medium for architectural expression.',
     tags: ['Simulation', 'Generative'],
@@ -70,7 +70,7 @@ export const portfolioItems = [
     title: 'Aligned',
     category: 'Tech',
     thumbnail: getImg('/src/assets/projects/aligned/thumbnail.webp'),
-    description: 'Embedded electronics and ML pipeline for a smart-fabric posture-sensing wearable, featuring a custom PCB with networked accelerometers and haptic feedback',
+    description: 'Embedded electronics and ML pipeline for a smart-fabric posture-sensing garment',
     fullDescription:
       'Aligned is a smart-fabric posture-sensing system integrating a custom PCB with four I²C-networked accelerometers and a vibration motor for haptic feedback. A lightweight machine-learning model distinguishes upright vs. slouched posture in real time, forming the foundation for a textile-embedded interface that supports healthier body awareness.\n\nWe built a fully working Arduino prototype demonstrating real-time posture detection, and developed a complete hardware pipeline from circuit schematic to manufactured PCB for textile integration.\n\nIn collaboration with Alec Lippman.',
     tags: ['Wearables', 'ML', 'Hardware'],

@@ -1,0 +1,11 @@
+.experience-card {
+  flex: 1 1 210px;
+  max-width: 265px;
+}
+
+@media (max-width: 768px) {
+  .experience-card {
+    flex: 1 1 calc(50% - 0.375rem);
+    max-width: calc(50% - 0.375rem);
+  }
+}

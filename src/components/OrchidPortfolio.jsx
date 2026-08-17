@@ -4,6 +4,7 @@ import { portfolioItems } from '../data/projects';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 import PublicationsSection from './PublicationsSection';
+import ExperienceSection from './ExperienceSection';
 import ProjectsSection from './ProjectsSection';
 import ProjectModal from './ProjectModal';
 
@@ -75,6 +76,7 @@ export default function OrchidPortfolio() {
         <Navbar scrollToSection={scrollToSection} />
         <HeroSection />
         <PublicationsSection />
+        <ExperienceSection />
         <ProjectsSection
           portfolioItems={portfolioItems}
           activeFilter={activeFilter}
