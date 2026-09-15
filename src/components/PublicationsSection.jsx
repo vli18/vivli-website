@@ -20,34 +20,57 @@ export default function PublicationsSection() {
         publications
       </h2>
 
-      {publications.map((pub) => (
-        <div key={pub.id} className="pub-card">
-          {pub.thumbnail ? (
-            pub.thumbnailFit === 'contain' ? (
-              <div className="pub-thumb-wrap">
-                <img src={pub.thumbnail} alt={pub.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-              </div>
-            ) : (
-              <img src={pub.thumbnail} alt={pub.title} className="pub-thumb-img" />
-            )
-          ) : (
-            <div className="pub-thumb-wrap" style={{ background: 'rgba(0,0,0,0.04)' }} />
-          )}
-
-          <div style={{ flex: 1 }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: '400', marginTop: 0, marginBottom: '0.25rem' }}>{pub.title}</h3>
-            <p style={{ fontSize: '0.85rem', color: 'rgba(0, 0, 0, 0.6)', marginBottom: '0.25rem' }}>
-              {renderAuthors(pub.authors, 'Vivian Li')}
-            </p>
-            <p style={{ fontSize: '0.9rem', color: 'rgba(0, 0, 0, 0.45)', marginBottom: '0.5rem' }}>{pub.venue}</p>
-            {(pub.pageUrl || pub.paperUrl) && (
-              <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                {pub.pageUrl && <a href={pub.pageUrl} target="_blank" rel="noreferrer" className="link-btn">Page</a>}
-                {pub.paperUrl && <a href={pub.paperUrl} target="_blank" rel="noreferrer" className="link-btn">Paper</a>}
-              </div>
-            )}
+      {publications.reduce((groups, pub) => {
+        const last = groups[groups.length - 1];
+        if (last && last.year === pub.year) {
+          last.pubs.push(pub);
+        } else {
+          groups.push({ year: pub.year, pubs: [pub] });
+        }
+        return groups;
+      }, []).map((group) => (
+        <React.Fragment key={group.year}>
+          <div className="pub-year-divider">
+            <hr />
+            <span>{group.year}</span>
+            <hr />
           </div>
-        </div>
+          {group.pubs.map((pub) => (
+            <div key={pub.id} className="pub-card">
+              {pub.thumbnail ? (
+                pub.thumbnailFit === 'contain' ? (
+                  <div className="pub-thumb-wrap">
+                    <img src={pub.thumbnail} alt={pub.title} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                  </div>
+                ) : (
+                  <img src={pub.thumbnail} alt={pub.title} className="pub-thumb-img" />
+                )
+              ) : (
+                <div className="pub-thumb-wrap" style={{ background: 'rgba(0,0,0,0.04)' }} />
+              )}
+
+              <div style={{ flex: 1 }}>
+                <h3 style={{ fontSize: '1.1rem', fontWeight: '400', marginTop: 0, marginBottom: '0.25rem' }}>{pub.title}</h3>
+                <p style={{ fontSize: '0.85rem', color: 'rgba(0, 0, 0, 0.6)', marginBottom: '0.25rem' }}>
+                  {renderAuthors(pub.authors, 'Vivian Li')}
+                </p>
+                <p style={{ fontSize: '0.9rem', color: 'rgba(0, 0, 0, 0.45)', marginBottom: '0.5rem' }}>
+                  {pub.venueName}
+                  {pub.status && <> — <i>{pub.status}</i></>}
+                  {' • '}
+                  {pub.year}
+                </p>
+                {(pub.pageUrl || pub.doiUrl || pub.paperUrl) && (
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    {pub.paperUrl && <a href={pub.paperUrl} target="_blank" rel="noreferrer" className="link-btn">Paper</a>}
+                    {pub.pageUrl && <a href={pub.pageUrl} target="_blank" rel="noreferrer" className="link-btn">Page</a>}
+                    {pub.doiUrl && <a href={pub.doiUrl} target="_blank" rel="noreferrer" className="link-btn">DOI</a>}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </React.Fragment>
       ))}
     </div>
   );

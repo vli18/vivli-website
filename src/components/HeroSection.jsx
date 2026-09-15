@@ -104,8 +104,8 @@ export default function HeroSection() {
           <p
             style={{
               fontFamily: '"Plus Jakarta Sans", sans-serif',
-              fontSize: '0.98rem',
-              lineHeight: '1.7',
+              fontSize: '0.92rem',
+              lineHeight: '1.6',
               textShadow: 'none',
               margin: 0,
             }}
@@ -128,16 +128,17 @@ export default function HeroSection() {
             >
               Adriana Schulz
             </a>
-            . I recently completed my B.S. in Computer Science and M.S. in Electrical and Computer Engineering at Brown
+            . I recently completed my Sc.B. in Computer Science and Sc.M. in Electrical and Computer Engineering at Brown
             University.
             <br />
             <br />
-            My research is in <strong>computational design and fabrication</strong> at the intersection of{' '}
-            <strong>computer graphics</strong> and <strong>human-computer interaction</strong>. I develop computational methods, interactive systems, 
-            and fabrication workflows that explore new possibilities for creating and interacting with the physical world.
+            My research is in <strong>computational design and fabrication</strong>. I develop computational methods in graphics and optimization for new materials, 
+            and build novel fabrication workflows. I'm broadly interested in how computation can expand what we're able to create, control, and interact with in the 
+            physical world.  Currently, I'm developing optimization methods for multi-objective garment design and computational design methods for optical metamaterials 
+            in soft robotics.
             <br />
             <br />
-            Beyond research, I love making across fashion design, painting, printmaking, and mixed-media. I also enjoy music ♫, hiking ᨒ↟, and time with my dog, Yoyo.
+            That same love of making carries outside the lab too, through textiles, painting, printmaking, and other mediums. I also enjoy music ♫, hiking ᨒ↟, and spending time with my dog, Yoyo.
           </p>
 
           <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.35rem', flexWrap: 'wrap' }}>
