@@ -134,8 +134,8 @@ export default function HeroSection() {
             <br />
             My research is in <strong>computational design and fabrication</strong>. I develop computational methods in graphics and optimization for new materials, 
             and build novel fabrication workflows. I'm broadly interested in how computation can expand what we're able to create, control, and interact with in the 
-            physical world.  Currently, I'm developing optimization methods for multi-objective garment design and computational design methods for optical metamaterials 
-            in soft robotics.
+            physical world.  Currently, I'm developing optimization methods for multi-objective garment design and computational design of optical metamaterials for 
+            soft robotics applications.
             <br />
             <br />
             That same love of making carries outside the lab too, through textiles, painting, printmaking, and other mediums. I also enjoy music ♫, hiking ᨒ↟, and spending time with my dog, Yoyo.
